@@ -37,7 +37,6 @@ const Login = () => {
 
     const emailInputRef = useRef();
     const passwordInputRef = useRef();
-    const passwordInputRef2 = useRef();
 
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
@@ -47,7 +46,6 @@ const Login = () => {
 
         const enteredEmail = emailInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
-        const confirmedPassword = passwordInputRef2.current.value;
 
         if (enteredEmail && enteredPassword) {
             fetch('https://act-grants-crm.herokuapp.com/rest-auth/login/',
@@ -55,9 +53,8 @@ const Login = () => {
                     method: 'POST',
                     body: JSON.stringify(
                         {
-                            username: enteredEmail,
+                            email: enteredEmail,
                             password: enteredPassword,
-                            password2: confirmedPassword
                         }
                     ),
                     headers: {

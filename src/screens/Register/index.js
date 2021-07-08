@@ -35,16 +35,21 @@ const Register = () => {
     const history = useHistory();
 
     const emailInputRef = useRef();
+    const usernameInputRef = useRef();
     const passwordInputRef = useRef();
     const passwordInputRef2 = useRef();
 
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
 
+    const [show2, setShow2] = useState(false)
+    const handleClick2 = () => setShow2(!show2)
+
     const submitHandler = (e) => {
         e.preventDefault();
 
         const enteredEmail = emailInputRef.current.value;
+        const enteredUsername = usernameInputRef.current.value;
         const enteredPassword = passwordInputRef.current.value;
         const confirmedPassword = passwordInputRef2.current.value;
 
@@ -54,9 +59,12 @@ const Register = () => {
                     method: 'POST',
                     body: JSON.stringify(
                         {
-                            username: enteredEmail,
-                            password: enteredPassword,
-                            password2: confirmedPassword
+                            email: enteredEmail,
+                            username: enteredUsername,
+                            password1: enteredPassword,
+                            password2: confirmedPassword,
+                            is_farmer: false,
+                            is_warehouse_manager: true
                         }
                     ),
                     headers: {
@@ -125,7 +133,7 @@ const Register = () => {
 
                     <FormControl color="light.primary" id="email">
                     <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Username</FormLabel>
-                        <Input color="white" fontSize="16px" type="text" ref={emailInputRef} />
+                        <Input color="white" fontSize="16px" type="text" ref={usernameInputRef} />
                     </FormControl>
         
             
@@ -153,13 +161,13 @@ const Register = () => {
                             <Input
                                 pr="4.5rem"
                                 color="light.primary"
-                                type={show ? "text" : "password"}
+                                type={show2 ? "text" : "password"}
                                 placeholder="Confirm your password"
                                 ref={passwordInputRef2}
                             />
                             <InputRightElement width="4.5rem">
-                                <Button h="1.75rem" size="sm" onClick={handleClick}>
-                                    {show ? "Hide" : "Show"}
+                                <Button h="1.75rem" size="sm" onClick={handleClick2}>
+                                    {show2 ? "Hide" : "Show"}
                                 </Button>
                             </InputRightElement>
                         </InputGroup>
@@ -169,7 +177,7 @@ const Register = () => {
                         <FormLabel as="legend">Godam User Type</FormLabel>
                         <RadioGroup defaultValue="Warehouse">
                             <HStack spacing="20px">
-                            <Radio value="Farmer">Farmer</Radio>
+                            <Radio isDisabled value="Farmer">Farmer</Radio>
                             <Radio value="Warehouse">Warehouse Manager</Radio>
                             </HStack>
                         </RadioGroup>
