@@ -15,6 +15,13 @@ const theme = {
         100: "#EEEEEE",
         20: "#EDF2F7"
       },
+      light: {
+        primary: "#FFFFFF",
+        secondary: "#E5E5E5"
+      },
+      dark: {
+        primary: "#151515"
+      }
       
     },
     fonts: {

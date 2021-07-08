@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Layout from './components/Layout'
 import Login from './screens/Login'
+import Register from './screens/Register'
 import Dashboard from './screens/Dashboard'
 import AuthContext from './store/auth'
 
@@ -16,6 +17,14 @@ function App() {
 
         <Route path="/" exact>
         {isLoggedIn ?  <Dashboard /> : <Login /> }
+        </Route>
+
+        <Route path="/login" exact>
+        {isLoggedIn ?  <Dashboard /> : <Login /> }
+        </Route>
+
+        <Route path="/register" exact>
+        {isLoggedIn ?  <Dashboard /> : <Register /> }
         </Route>
 
         <Route path="*">

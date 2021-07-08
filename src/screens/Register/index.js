@@ -21,16 +21,15 @@ import {
     RadioGroup, Radio, HStack,
 } from '@chakra-ui/react';
 
-import { Link } from 'react-router-dom'
-
 import { useHistory } from 'react-router-dom'
 import AuthContext from '../../store/auth';
 
+import { Link } from 'react-router-dom'
 
 import farmer from '../../resources/img/farmer.png'
 
 
-const Login = () => {
+const Register = () => {
 
     const authCtx = useContext(AuthContext);
     const history = useHistory();
@@ -87,7 +86,7 @@ const Login = () => {
             <Flex 
                 margin="auto" 
                 flexDir={["column","column","column","row","row"]}
-                height="92vh"
+                height="100%"
                 justifyContent="center" 
                 alignItems="center"
             >
@@ -120,6 +119,11 @@ const Login = () => {
 
                     <Box width="80%">
                     <FormControl color="light.primary" id="email">
+                        <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Email Id</FormLabel>
+                        <Input type="email" ref={emailInputRef} />
+                    </FormControl>
+
+                    <FormControl color="light.primary" id="email">
                     <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Username</FormLabel>
                         <Input color="white" fontSize="16px" type="text" ref={emailInputRef} />
                     </FormControl>
@@ -143,6 +147,34 @@ const Login = () => {
                         </InputGroup>
                     </FormControl>
 
+                    <FormControl id="email">
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Confirm Password</FormLabel>
+                        <InputGroup size="lg">
+                            <Input
+                                pr="4.5rem"
+                                color="light.primary"
+                                type={show ? "text" : "password"}
+                                placeholder="Confirm your password"
+                                ref={passwordInputRef2}
+                            />
+                            <InputRightElement width="4.5rem">
+                                <Button h="1.75rem" size="sm" onClick={handleClick}>
+                                    {show ? "Hide" : "Show"}
+                                </Button>
+                            </InputRightElement>
+                        </InputGroup>
+                    </FormControl>
+
+                    <FormControl color="white" mt="10px" as="fieldset">
+                        <FormLabel as="legend">Godam User Type</FormLabel>
+                        <RadioGroup defaultValue="Warehouse">
+                            <HStack spacing="20px">
+                            <Radio value="Farmer">Farmer</Radio>
+                            <Radio value="Warehouse">Warehouse Manager</Radio>
+                            </HStack>
+                        </RadioGroup>
+                        </FormControl>
+
                     <Button
                         bg="#00FF66"
                         color="grey.700"
@@ -150,10 +182,10 @@ const Login = () => {
                         marginTop="30px"
                         padding="24px"
                         fontSize="22px"
-                    >Login to your Godam Account</Button>
+                    >Create your Godam Account</Button>
 
-                    <Link to="/register">
-                        <Text mt="20px" color="white">Don't have an account? Register here.</Text>
+                    <Link to="/login">
+                        <Text  mt="20px" color="white">Already have an account? Login here.</Text>
                         </Link>
                     </Box>
                 </Box>
@@ -162,4 +194,4 @@ const Login = () => {
     )
 }
 
-export default Login;
+export default Register;

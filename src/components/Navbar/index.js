@@ -23,10 +23,7 @@ const Navbar = () => {
 
     return(
         <div>
-            <Flex 
-                paddingTop="25px"
-                paddingLeft="2.5vw"
-                paddingRight="2.5vw"
+            <Flex
                 alignItems="center"
             >
             
