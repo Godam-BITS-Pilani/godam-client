@@ -54,7 +54,7 @@ const Register = () => {
         const confirmedPassword = passwordInputRef2.current.value;
 
         if (enteredEmail && enteredPassword) {
-            fetch('https://act-grants-crm.herokuapp.com/rest-auth/login/',
+            fetch('https://godam-backend.herokuapp.com/api/rest-auth/register/',
                 {
                     method: 'POST',
                     body: JSON.stringify(
@@ -80,7 +80,7 @@ const Register = () => {
                 if(res.data.key){
                     authCtx.login(res.data.key);
                     console.log(res.data.key);
-                    history.replace('/dashboard');
+                    history.replace('/login');
                 } else {
                     alert("Authentication failed. Please try again.");
                 }

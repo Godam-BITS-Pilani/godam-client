@@ -48,12 +48,12 @@ const Login = () => {
         const enteredPassword = passwordInputRef.current.value;
 
         if (enteredEmail && enteredPassword) {
-            fetch('https://act-grants-crm.herokuapp.com/rest-auth/login/',
+            fetch('https://godam-backend.herokuapp.com/api/rest-auth/login/',
                 {
                     method: 'POST',
                     body: JSON.stringify(
                         {
-                            email: enteredEmail,
+                            username: enteredEmail,
                             password: enteredPassword,
                         }
                     ),

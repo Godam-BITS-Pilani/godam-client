@@ -7,12 +7,11 @@ import React, {
 
 import {
     Flex,
-    Spinner,
+    Text,
   } from "@chakra-ui/react"
 
 import AuthContext from '../../store/auth'
-import Domestic from '../../components/Domestic'
-import International from '../../components/International'
+
 
 const Dashboard = () => {
 
@@ -130,25 +129,7 @@ const Dashboard = () => {
 
     return(
         <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
-            {((userDetails && paymentStatistics && domesticPayments)) ?
-            <Fragment>
-                {isDomestic ?
-                    <Domestic 
-                        toggleDomestic={toggleDomestic}
-                        paymentStatistics={paymentStatistics}
-                        userDetails={userDetails}
-                        domesticPayments={domesticPayments}
-                        isDomestic={isDomestic}
-                    /> :
-                    <International 
-                        toggleDomestic={toggleDomestic}
-                        paymentStatistics={paymentStatistics}
-                        userDetails={userDetails}
-                        internationalPayments={internationalPayments}
-                        isDomestic={isDomestic}
-                    /> }
-            </Fragment> : 
-            <Spinner /> }
+            <Text>dashboard is in</Text>
         </Flex>
     )
 }
