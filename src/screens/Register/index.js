@@ -54,7 +54,7 @@ const Register = () => {
         const confirmedPassword = passwordInputRef2.current.value;
 
         if (enteredEmail && enteredPassword) {
-            fetch('https://godam-backend.herokuapp.com/api/rest-auth/register/',
+            fetch('https://godam-backend.herokuapp.com/api/rest-auth/registration/',
                 {
                     method: 'POST',
                     body: JSON.stringify(

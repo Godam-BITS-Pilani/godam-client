@@ -129,7 +129,7 @@ const Dashboard = () => {
 
     return(
         <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
-            <Text>dashboard is in</Text>
+            <Text color="light.primary">dashboard is in</Text>
         </Flex>
     )
 }

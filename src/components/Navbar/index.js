@@ -35,24 +35,18 @@ const Navbar = () => {
                 <Heading
                     fontSize={["20px", "20px", "24px", "32px", "32px"]}
                     paddingLeft={["0.5vw", "0.5vw", "0.5vw", "1vw", "1vw"]}
-                    color="grey.700"
+                    color="light.primary"
                 >Godam Dashboard</Heading>
             </Link>
                 <Spacer />
                 { isLoggedIn ? 
                 <>
-                    <DownloadIcon 
-                        onClick={()=>window.print()} 
-                        w={6} 
-                        h={6} 
-                        mr="25px"
-                        color="grey.500"
-                        cursor="pointer"
-                    />
+
                     <Button
                         fontSize={["20px", "20px", "24px", "24px", "24px"]}
                         padding={["14px", "14px", "24px", "24px", "24px"]}
-                        color="grey.700"
+                        color="dark.primary"
+                        bg="light.primary"
                         onClick={logoutHandler}
                     >
                         Logout
