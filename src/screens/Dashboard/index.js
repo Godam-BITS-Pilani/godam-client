@@ -28,8 +28,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         getWarehouseInfo();
-        
-    }, []); 
+        postData()
+    }, [warehouseInfo]); 
     
     const getWarehouseInfo = () => {
         fetch('https://godam-backend.herokuapp.com/api/warehouse/detail/1/',
@@ -56,7 +56,7 @@ const Dashboard = () => {
     }
 
     function postData(){
-        if (warehouseInfo.cumulative_storage)
+        if (warehouseInfo)
         setStoragePer((warehouseInfo.cumulative_storage-warehouseInfo.cumulative_available_storage)/(warehouseInfo.cumulative_storage)*100)
     }
 
@@ -64,9 +64,8 @@ const Dashboard = () => {
     return (
         <>
         {warehouseInfo ? 
-        
-            <Flex direction="column" margin="auto" alignItems="center" justifyContent="center" width="90vw">
-                <Text color="light.primary" fontSize="12px">{JSON.stringify(warehouseInfo)}</Text>
+            <Flex width="100%" height="100%" direction="column" margin="auto" alignItems="center">
+                <Text color="dark.primary" fontSize="12px">{JSON.stringify(warehouseInfo)}</Text>
                 <Flex 
                     flexDir="row"
                     alignItems="center"
@@ -76,14 +75,19 @@ const Dashboard = () => {
                         boxSize="50px"
                         borderRadius="100%"
                         mr="30px" />
-                    <Text color="light.primary">Hey {warehouseInfo.name}, welcome to your Godam Dashboard!</Text>
+                    <Text color="dark.primary">Hey {warehouseInfo.name}, welcome to your Godam Dashboard!</Text>
                 </Flex>  
-                <Flex height="100px"><CircularProgressbar value={storagePer} text={`${storagePer}%`} />;</Flex>
+                <Flex height="100px">
+                    <Flex mr="-50px" ml="-50px" >
+                    <CircularProgressbar value={storagePer} text={`${storagePer}%`} /></Flex>
+                    <Text color="dark.primary">You're at full capacity!</Text>
+                </Flex>
+
                 
 
             </Flex> : 
             <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
-                <Spinner color="light.primary" />
+                <Spinner color="dark.primary" />
             </Flex>}
         </>
     )
