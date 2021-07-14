@@ -36,15 +36,23 @@ const Navbar = () => {
                     fontSize={["20px", "20px", "24px", "32px", "32px"]}
                     paddingLeft={["0.5vw", "0.5vw", "0.5vw", "1vw", "1vw"]}
                     color="dark.primary"
-                >Godam Dashboard</Heading>
+                >Godam</Heading>
             </Link>
                 <Spacer />
                 { isLoggedIn ? 
                 <>
+                    <Link to="/">
+                    <Heading
+                        fontSize={["14px", "14px", "18px", "18px", "18px"]}
+                        paddingLeft={["0.5vw", "0.5vw", "0.5vw", "1vw", "1vw"]}
+                        mr="10px"
+                        color="dark.primary"
+                    >Warehouse</Heading>
+                </Link>
 
                     <Button
-                        fontSize={["20px", "20px", "24px", "24px", "24px"]}
-                        padding={["14px", "14px", "24px", "24px", "24px"]}
+                        fontSize={["14px", "14px", "18px", "18px", "18px"]}
+                        padding={["5px", "5px", "10px", "10px", "10px"]}
                         color="light.primary"
                         bg="red"
                         onClick={logoutHandler}

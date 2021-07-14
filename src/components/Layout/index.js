@@ -12,7 +12,7 @@ const Layout = (props) => {
     return (
       <Flex 
         flexDir="column" 
-        margin="20px"
+        margin="40px"
         height="100%"
       >
         {isLoggedIn ? <Navbar /> : null}
