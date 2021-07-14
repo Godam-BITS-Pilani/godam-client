@@ -114,7 +114,7 @@ const Register = () => {
 
                     <Heading
                         fontSize="26px"
-                        color="light.secondary"
+                        color="dark.primary"
                     >Join a growing community of warehouse farmers from across the globe and optimise your farming pipelines.</Heading>
 
                     {/* <Text
@@ -126,22 +126,22 @@ const Register = () => {
                     >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ex sem, consequat quis tellus et, pellentesque pretium justo. </Text> */}
 
                     <Box width="80%">
-                    <FormControl color="light.primary" id="email">
-                        <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Email Id</FormLabel>
+                    <FormControl color="dark.primary" id="email">
+                        <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Email Id</FormLabel>
                         <Input type="email" ref={emailInputRef} />
                     </FormControl>
 
-                    <FormControl color="light.primary" id="email">
-                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Username</FormLabel>
-                        <Input color="white" fontSize="16px" type="text" ref={usernameInputRef} />
+                    <FormControl color="dark.primary" id="email">
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Username</FormLabel>
+                        <Input color="dark.primary" fontSize="16px" type="text" ref={usernameInputRef} />
                     </FormControl>
         
             
                     <FormControl id="email">
-                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Password</FormLabel>
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Password</FormLabel>
                         <InputGroup size="lg">
                             <Input
-                                color="light.primary"
+                                color="dark.primary"
                                 pr="4.5rem"
                                 type={show ? "text" : "password"}
                                 placeholder="Enter your password"
@@ -156,11 +156,11 @@ const Register = () => {
                     </FormControl>
 
                     <FormControl id="email">
-                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Confirm Password</FormLabel>
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Confirm Password</FormLabel>
                         <InputGroup size="lg">
                             <Input
                                 pr="4.5rem"
-                                color="light.primary"
+                                color="dark.primary"
                                 type={show2 ? "text" : "password"}
                                 placeholder="Confirm your password"
                                 ref={passwordInputRef2}
@@ -173,7 +173,7 @@ const Register = () => {
                         </InputGroup>
                     </FormControl>
 
-                    <FormControl color="white" mt="10px" as="fieldset">
+                    <FormControl color="dark.primary" mt="10px" as="fieldset">
                         <FormLabel as="legend">Godam User Type</FormLabel>
                         <RadioGroup defaultValue="Warehouse">
                             <HStack spacing="20px">
@@ -193,7 +193,7 @@ const Register = () => {
                     >Create your Godam Account</Button>
 
                     <Link to="/login">
-                        <Text  mt="20px" color="white">Already have an account? Login here.</Text>
+                        <Text  mt="20px" color="dark.primary">Already have an account? Login here.</Text>
                         </Link>
                     </Box>
                 </Box>

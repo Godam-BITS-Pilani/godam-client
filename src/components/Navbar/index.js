@@ -45,8 +45,8 @@ const Navbar = () => {
                     <Heading
                         fontSize={["14px", "14px", "18px", "18px", "18px"]}
                         paddingLeft={["0.5vw", "0.5vw", "0.5vw", "1vw", "1vw"]}
-                        mr="10px"
-                        color="dark.primary"
+                        mr="30px"
+                        color="gray.600"
                     >Warehouse</Heading>
                 </Link>
 
