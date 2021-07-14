@@ -8,6 +8,8 @@ import React, {
 import {
     Flex,
     Text,
+    Image,
+    Spinner
   } from "@chakra-ui/react"
 
 import AuthContext from '../../store/auth'
@@ -18,21 +20,14 @@ const Dashboard = () => {
     const authCtx = useContext(AuthContext);
     const authToken = 'Token ' + authCtx.token;
     
-    const [userDetails, setUserDetails] = useState(null);
-    const [paymentStatistics, setPaymentStatistics] = useState(null);
-    const [domesticPayments, setDomesticPayments] = useState(null);
-    const [internationalPayments, setInternationalPayments] = useState(null);
-    const [isDomestic, setIsDomestic] = useState(true);
+    const [warehouseInfo, setWarehouseInfo] = useState(null);
 
     useEffect(() => {
-        userDetailsApiRequest();
-        getStatisticsApiRequest();
-        getAllDomesticPaymentsApi();
-        getAllInternationalPaymentsApi();
+        getWarehouseInfo();
     }, []); 
     
-    const userDetailsApiRequest = () => {
-        fetch('https://act-grants-crm.herokuapp.com/rest-auth/user/',
+    const getWarehouseInfo = () => {
+        fetch('https://godam-backend.herokuapp.com/api/warehouse/detail/1/',
                 {   
                     method: 'GET',
                     headers: {
@@ -47,90 +42,35 @@ const Dashboard = () => {
                 })
             ).then(res => {
                 if(res.data){
-                    setUserDetails(res.data);
+                    setWarehouseInfo(res.data);
                 } else {
                     alert("ERROR RETRIEVING CONTENT.");
                 }
             }))
     }
 
-    const getStatisticsApiRequest = () => {
-        fetch('https://act-grants-crm.herokuapp.com/donation/get_statistics/',
-                {   
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': authToken
-                    }
-                }
-            ).then(response => 
-                response.json().then(data => ({
-                    data: data,
-                    status: response.status
-                })
-            ).then(res => {
-                if(res.data){
-                    setPaymentStatistics(res.data);
-                } else {
-                    alert("ERROR RETRIEVING CONTENT.");
-                }
-            }))
-    }
-
-    const getAllDomesticPaymentsApi = () => {
-        fetch('https://act-grants-crm.herokuapp.com/donation/get_all_donations/?limit=100&domestic=true&offset=0&international=false',
-                {   
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': authToken
-                    }
-                }
-            ).then(response => 
-                response.json().then(data => ({
-                    data: data,
-                    status: response.status
-                })
-            ).then(res => {
-                if(res.data){
-                    setDomesticPayments(res.data);
-                } else {
-                    alert("ERROR RETRIEVING CONTENT.");
-                }
-            }))
-    }
-    
-    const getAllInternationalPaymentsApi = () => {
-        fetch('https://act-grants-crm.herokuapp.com/donation/get_all_donations/?limit=100&domestic=false&offset=0&international=true',
-                {   
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': authToken
-                    }
-                }
-            ).then(response => 
-                response.json().then(data => ({
-                    data: data,
-                    status: response.status
-                })
-            ).then(res => {
-                if(res.data){
-                    setInternationalPayments(res.data);
-                } else {
-                    alert("ERROR RETRIEVING CONTENT.");
-                }
-            }))
-    }
-    
-    const toggleDomestic = () => {
-        setIsDomestic(!isDomestic);
-    }
-
-    return(
-        <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
-            <Text color="light.primary">dashboard is in</Text>
-        </Flex>
+    return (
+        <>
+        {warehouseInfo ? 
+            <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
+                <Text color="light.primary" fontSize="12px">{JSON.stringify(warehouseInfo)}</Text>
+                <Flex 
+                    flexDir="row"
+                    alignItems="center"
+                >
+                    <Image
+                        src={warehouseInfo.avatar}
+                        boxSize="50px"
+                        borderRadius="100%"
+                        mr="30px" />
+                    <Text color="light.primary">Hey {warehouseInfo.name}, welcome to your Godam Dashboard!</Text>
+                </Flex>
+                
+            </Flex> : 
+            <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
+                <Spinner color="light.primary" />
+            </Flex>}
+        </>
     )
 }
 
