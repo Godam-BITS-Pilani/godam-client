@@ -21,6 +21,8 @@ import psrth from '../../resources/img/psrth.jpg'
 
 import Service from '../../components/Service'
 import Farmer from '../../components/Farmer'
+import MultiType from '../../components/Multi/Index';
+import DoughnutChart from '../../components/Do';
 
 
 const Dashboard = () => {
@@ -33,6 +35,9 @@ const Dashboard = () => {
 
     useEffect(() => {
         getWarehouseInfo();
+    }, []); 
+
+    useEffect(() => {
         postData()
     }, [warehouseInfo]); 
     
@@ -70,6 +75,7 @@ const Dashboard = () => {
         <> {warehouseInfo ? 
         <>
 
+
             {/* USER GREETING SECTION */}
             <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
                 <Image
@@ -87,7 +93,9 @@ const Dashboard = () => {
                 >Hey {warehouseInfo.name}, welcome to your Godam Dashboard!</Text>
             </Flex>
 
+
             
+
 
             {/* WAREHOUSE OVERVIEW SECTION */}
             <Flex flexDirection="column" justifyContent="center" mt="30px" mb="10px" alignItems="flex-start" flexWrap="wrap">
@@ -122,27 +130,31 @@ const Dashboard = () => {
                         alignItems="center"
                         justifyContent="center"
                     >   
-                        <Flex height="200px">
-                            <CircularProgressbar value={storagePer} text={`${storagePer}%`} />
+                        <Flex height="250px" width="250px">
+                            {/* <CircularProgressbar value={storagePer} text={`${storagePer}%`} /> */}
+                            <DoughnutChart />
                         </Flex>
-                        <Text mt="20px" color="dark.primary">You're at full capacity!</Text>
+                        {/* <Text mt="20px" color="dark.primary">You're at full capacity!</Text> */}
                     </Flex>
                 </Flex>
             </Flex>
 
 
+           
+
             {/* SERVICES LIST SECTION */}
             <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">ACTIVE SERVICES</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
-                    <Service imgUrl={psrth} name="Parth Sharma" />
-                    <Service imgUrl={psrth} name="Parth Sharma" />
-                    <Service imgUrl={psrth} name="Parth Sharma" />
-                    <Service imgUrl={psrth} name="Parth Sharma" />
-                    <Service imgUrl={psrth} name="Parth Sharma" />
-                    <Service imgUrl={psrth} name="Parth Sharma" />
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
                 </Flex>
             </Flex>
+
 
 
 
@@ -158,6 +170,22 @@ const Dashboard = () => {
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                 </Flex>
             </Flex>
+
+
+
+
+
+            {/* REVENUE OVERVIEW SECTION */}
+            <Flex flexDirection="column" justifyContent="center" mt="70px" mb="-70px" alignItems="center" flexWrap="wrap">
+                <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">REVENUE OVERVIEW</Text>
+            </Flex>
+            <Flex width="100%" alignItems="center" justifyContent="center">
+                <Flex height="600px" width="800px" alignItems="center" justifyContent="center">
+                    <MultiType />
+                </Flex>
+            </Flex>
+           
+    
 
         </> :
         <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">

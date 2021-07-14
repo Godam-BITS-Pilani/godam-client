@@ -12,22 +12,31 @@ const Service = (props) => {
         <Flex 
             flexDir="row"
             bg="gray.100" 
-            p="10px"
-            height="80px"
-            width="270px"
+            p="20px"
+            height="120px"
+            width="320px"
             mr="20px"
             mt="20px"
             alignItems="center"
-            justifyContent="center"
+            justifyContent="flex-start"
             borderRadius="10px"
         >
             <Image
                 boxSize="50px"
                 src={props.imgUrl}
-                mr="20px"
+                mr="15px"
                 borderRadius="10px"
             ></Image>
-            <Text fontSize="24px" fontWeight="bold">{props.name}</Text>
+            <Flex flexDir="column">
+                <Text fontSize="18px" fontWeight="bold">{props.name}</Text>
+                <Text fontSize="16px" fontWeight="medium">{props.desc}</Text>
+                <Flex flexDir="row" flexWrap="wrap">
+                    {props.crops.map((crop, id) => (
+                        <Text pr="8px" pl="8px" fontSize="12px" bg="gray.300" mr="5px" borderRadius="10px">{crop.name}</Text>
+                    ))}
+                </Flex>
+            </Flex>
+            
         </Flex>
     )
 }
