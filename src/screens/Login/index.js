@@ -104,7 +104,7 @@ const Login = () => {
 
                     <Heading
                         fontSize="26px"
-                        color="light.secondary"
+                        color="dark.primary"
                     >Join a growing community of warehouse farmers from across the globe and optimise your farming pipelines.</Heading>
 
                     {/* <Text
@@ -116,17 +116,17 @@ const Login = () => {
                     >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ex sem, consequat quis tellus et, pellentesque pretium justo. </Text> */}
 
                     <Box width="80%">
-                    <FormControl color="light.primary" id="email">
-                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Username</FormLabel>
-                        <Input color="white" fontSize="16px" type="text" ref={emailInputRef} />
+                    <FormControl color="dark.primary" id="email">
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Username</FormLabel>
+                        <Input color="dark.primary" fontSize="16px" type="text" ref={emailInputRef} />
                     </FormControl>
         
             
                     <FormControl id="email">
-                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="light.primary">Password</FormLabel>
+                    <FormLabel fontWeight="medium" fontSize="18px" mt="10px" color="dark.primary">Password</FormLabel>
                         <InputGroup size="lg">
                             <Input
-                                color="light.primary"
+                                color="dark.primary"
                                 pr="4.5rem"
                                 type={show ? "text" : "password"}
                                 placeholder="Enter your password"
@@ -150,7 +150,7 @@ const Login = () => {
                     >Login to your Godam Account</Button>
 
                     <Link to="/register">
-                        <Text mt="20px" color="white">Don't have an account? Register here.</Text>
+                        <Text mt="20px" color="dark.primary">Don't have an account? Register here.</Text>
                         </Link>
                     </Box>
                 </Box>

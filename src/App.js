@@ -7,6 +7,7 @@ import Register from './screens/Register'
 import Dashboard from './screens/Dashboard'
 import AuthContext from './store/auth'
 
+
 function App() {
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
