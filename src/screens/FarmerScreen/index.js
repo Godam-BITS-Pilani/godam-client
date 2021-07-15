@@ -38,7 +38,7 @@ const FarmerScreen = (props) => {
     }, []); 
     
     const getFarmerInfo = () => {
-        fetch('https://godam-backend.herokuapp.com/api/farmer_crop_list/',
+        fetch('https://godam-backend.herokuapp.com/api/crop/farmer_crop_list/'+farmerSlug,
                 {   
                     method: 'GET',
                     headers: {
@@ -114,7 +114,7 @@ const FarmerScreen = (props) => {
         // </Flex>}
         // </>
         <>
-        {farmerSlug}
+        {JSON.stringify(farmerInfo)}
         </>
     )
 }
