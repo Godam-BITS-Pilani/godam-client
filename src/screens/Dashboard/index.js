@@ -58,7 +58,6 @@ const Dashboard = () => {
             ).then(res => {
                 if(res.data){
                     setWarehouseInfo(res.data);
-                    postData()
                 } else {
                     alert("ERROR RETRIEVING CONTENT.");
                 }
@@ -146,12 +145,23 @@ const Dashboard = () => {
             <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">ACTIVE SERVICES</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
-                    <Service imgUrl={psrth} name="Parth Sharma" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    {/*                     
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/>
+                    <Service imgUrl={psrth} name="Parth Sharma" desc="lorem ipsum" crops={[{"name": "wheat"},{"name": "wheat"},{"name": "wheat"},]}/> 
+                    */}
+
+                    {warehouseInfo.services.map((service, id) => (
+                        <Service 
+                            imgUrl={service.img} 
+                            name={service.name} 
+                            desc={service.description} 
+                            crops={service.crops} 
+                        />
+                    ))} 
                 </Flex>
             </Flex>
 
@@ -162,12 +172,23 @@ const Dashboard = () => {
             <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">ACTIVE FARMERS</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
+                    {/*  
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    */}
+                    
+                    {warehouseInfo.farmers_in_warehouse.map((farmer, id) => (
+                        <Farmer 
+                            imgUrl={farmer.avatat} 
+                            name={farmer.name} 
+                            desc={farmer.bio} 
+                        />
+                    ))} 
+                    
                 </Flex>
             </Flex>
 

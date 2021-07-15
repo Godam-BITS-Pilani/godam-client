@@ -14,7 +14,7 @@ const Service = (props) => {
             bg="gray.100" 
             p="20px"
             height="120px"
-            width="320px"
+            width="380px"
             mr="20px"
             mt="20px"
             alignItems="center"
@@ -22,15 +22,15 @@ const Service = (props) => {
             borderRadius="10px"
         >
             <Image
-                boxSize="50px"
+                boxSize="80px"
                 src={props.imgUrl}
                 mr="15px"
                 borderRadius="10px"
             ></Image>
             <Flex flexDir="column">
                 <Text fontSize="18px" fontWeight="bold">{props.name}</Text>
-                <Text fontSize="16px" fontWeight="medium">{props.desc}</Text>
-                <Flex flexDir="row" flexWrap="wrap">
+                <Text fontSize="14px" fontWeight="medium">{props.desc}</Text>
+                <Flex flexDir="row" mt="5px" flexWrap="wrap">
                     {props.crops.map((crop, id) => (
                         <Text pr="8px" pl="8px" fontSize="12px" bg="gray.300" mr="5px" borderRadius="10px">{crop.name}</Text>
                     ))}

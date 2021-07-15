@@ -47,7 +47,7 @@ const Navbar = () => {
                         paddingLeft={["0.5vw", "0.5vw", "0.5vw", "1vw", "1vw"]}
                         mr="30px"
                         color="gray.600"
-                    >Warehouse</Heading>
+                    >My Warehouse</Heading>
                 </Link>
 
                     <Button
