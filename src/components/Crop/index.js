@@ -12,7 +12,7 @@ const Crop = (props) => {
         <Flex 
             flexDir="row"
             bg="gray.100" 
-            height="180px"
+            height="100%"
             width="600px"
             p="20px"
             mr="20px"
@@ -31,8 +31,23 @@ const Crop = (props) => {
 
             <Flex flexDir="column">
                 <Text fontSize="24px" fontWeight="bold">{props.name}</Text>
-                <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</Text>
-                <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</Text>
+                {/* <Text fontSize="14px" fontWeight="medium">{props.desc}</Text> */}
+                <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard.</Text>
+                
+                <Flex flexDir="row" mt="10px">
+                    <Flex flexDir="column" alignItems="center" mr="20px">
+                        <Text fontSize="12px" fontWeight="medium">TOTAL VOLUME</Text>
+                        <Text fontSize="24px" fontWeight="bold">{props.totalVol} kgs</Text>
+                    </Flex>
+                    <Flex flexDir="column" alignItems="center" mr="20px">
+                        <Text fontSize="12px" fontWeight="medium">AVAILABLE VOLUME</Text>
+                        <Text fontSize="24px" fontWeight="bold">{props.availVol} kgs</Text>
+                    </Flex>
+                    <Flex flexDir="column" alignItems="center">
+                        <Text fontSize="12px" fontWeight="medium">CURRENT VOLUME</Text>
+                        <Text fontSize="24px" fontWeight="bold">{props.currentVol} kgs</Text>
+                    </Flex>
+                </Flex>
             </Flex>
         </Flex>
     )

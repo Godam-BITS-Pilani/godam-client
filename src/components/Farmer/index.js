@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {
     Flex,
     Box,
@@ -7,8 +8,15 @@ import {
     Heading
 } from '@chakra-ui/react'
 
+import {
+	Link,
+} from "react-router-dom";
+
+
 const Farmer = (props) => {
     return(
+        <>
+        <Link to={`/farmer/${props.username}`}>
         <Flex 
             flexDir="row"
             bg="gray.100" 
@@ -34,6 +42,7 @@ const Farmer = (props) => {
                 <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</Text>
             </Flex>
         </Flex>
+    </Link></>
     )
 }
 

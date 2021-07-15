@@ -5,6 +5,8 @@ import React, {
     useEffect
 } from 'react'
 
+import { useParams } from "react-router-dom";
+
 import {
     Flex,
     Text,
@@ -26,7 +28,8 @@ const FarmerScreen = (props) => {
     const authCtx = useContext(AuthContext);
     const authToken = 'Token ' + authCtx.token;
 
-    const queryParam = props.username
+    const params = useParams();
+    const farmerSlug = params.farmerSlug;
     
     const [farmerInfo, setFarmerInfo] = useState(null);
 
@@ -35,7 +38,7 @@ const FarmerScreen = (props) => {
     }, []); 
     
     const getFarmerInfo = () => {
-        fetch('https://godam-backend.herokuapp.com/api/farmer_crop_list/'+queryParam,
+        fetch('https://godam-backend.herokuapp.com/api/farmer_crop_list/',
                 {   
                     method: 'GET',
                     headers: {
@@ -60,55 +63,58 @@ const FarmerScreen = (props) => {
 
 
     return (
-        <> {farmerInfo ? 
-        <>
+        // <> {farmerInfo ? 
+        // <>
 
-            {/* USER GREETING SECTION */}
-            <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
-                <Image
-                    // src={warehouseInfo.avatar}
-                    src={psrth}
-                    height="70px"
-                    width="70px"
-                    borderRadius="100%"
-                    objectFit="cover"
-                    mr="30px" />
-                <Text 
-                    color="gray.600"
-                    fontSize="28px"
-                    fontWeight="bold"
-                >Hey {farmerInfo.name}, welcome to your Godam Dashboard!</Text>
-            </Flex>
+        //     {/* USER GREETING SECTION */}
+        //     <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
+        //         <Image
+        //             // src={warehouseInfo.avatar}
+        //             src={psrth}
+        //             height="70px"
+        //             width="70px"
+        //             borderRadius="100%"
+        //             objectFit="cover"
+        //             mr="30px" />
+        //         <Text 
+        //             color="gray.600"
+        //             fontSize="28px"
+        //             fontWeight="bold"
+        //         >Hey {farmerInfo.name}, welcome to your Godam Dashboard!</Text>
+        //     </Flex>
 
 
-            {/* FARMERS LIST SECTION */}
-            <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
-                <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">ACTIVE FARMERS</Text>
-                <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
-                    {/*  
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    */}
+        //     {/* FARMERS LIST SECTION */}
+        //     <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
+        //         <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">ACTIVE FARMERS</Text>
+        //         <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
+        //             {/*  
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             <Farmer imgUrl={psrth} name="Parth Sharma" />
+        //             */}
                     
-                    {farmerInfo.farmers_in_warehouse.map((farmer, id) => (
-                        <Farmer 
-                            imgUrl={farmer.avatat} 
-                            name={farmer.name} 
-                            desc={farmer.bio} 
-                        />
-                    ))} 
+        //             {farmerInfo.farmers_in_warehouse.map((farmer, id) => (
+        //                 <Farmer 
+        //                     imgUrl={farmer.avatat} 
+        //                     name={farmer.name} 
+        //                     desc={farmer.bio} 
+        //                 />
+        //             ))} 
                     
-                </Flex>
-            </Flex>
+        //         </Flex>
+        //     </Flex>
         
-        </> :
-        <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
-            <Spinner color="dark.primary" />
-        </Flex>}
+        // </> :
+        // <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
+        //     <Spinner color="dark.primary" />
+        // </Flex>}
+        // </>
+        <>
+        {farmerSlug}
         </>
     )
 }
