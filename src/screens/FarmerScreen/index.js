@@ -94,7 +94,7 @@ const FarmerScreen = (props) => {
                     <Farmer imgUrl={psrth} name="Parth Sharma" />
                     */}
                     
-                    {warehouseInfo.farmers_in_warehouse.map((farmer, id) => (
+                    {farmerInfo.farmers_in_warehouse.map((farmer, id) => (
                         <Farmer 
                             imgUrl={farmer.avatat} 
                             name={farmer.name} 

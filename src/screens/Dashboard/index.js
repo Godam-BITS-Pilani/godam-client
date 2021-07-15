@@ -21,6 +21,8 @@ import psrth from '../../resources/img/psrth.jpg'
 
 import Service from '../../components/Service'
 import Farmer from '../../components/Farmer'
+import Crop from '../../components/Crop'
+
 import MultiType from '../../components/Multi/Index';
 import DoughnutChart from '../../components/Do';
 
@@ -42,7 +44,7 @@ const Dashboard = () => {
     }, [warehouseInfo]); 
     
     const getWarehouseInfo = () => {
-        fetch('https://godam-backend.herokuapp.com/api/warehouse/detail/1/',
+        fetch('https://godam-backend.herokuapp.com/api/warehouse/detail/',
                 {   
                     method: 'GET',
                     headers: {
@@ -78,8 +80,8 @@ const Dashboard = () => {
             {/* USER GREETING SECTION */}
             <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
                 <Image
-                    // src={warehouseInfo.avatar}
-                    src={psrth}
+                    src={warehouseInfo.avatar}
+                    // src={psrth}
                     height="70px"
                     width="70px"
                     borderRadius="100%"
@@ -183,9 +185,38 @@ const Dashboard = () => {
                     
                     {warehouseInfo.farmers_in_warehouse.map((farmer, id) => (
                         <Farmer 
-                            imgUrl={farmer.avatat} 
+                            imgUrl={farmer.avatar} 
                             name={farmer.name} 
                             desc={farmer.bio} 
+                        />
+                    ))} 
+                    
+                </Flex>
+            </Flex>
+
+
+
+            {/* CROPS LIST SECTION */}
+            <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
+                <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">CROPS IN STORE</Text>
+                <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
+                    {/*  
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    <Farmer imgUrl={psrth} name="Parth Sharma" />
+                    */}
+                    
+                    {warehouseInfo.warehouse_stored_crops.map((crop, id) => (
+                        <Crop 
+                            imgUrl={crop.crop.avatar} 
+                            name={crop.crop.name} 
+                            desc={crop.crop.bio} 
+                            totalVol={crop.total_volume}
+                            currentVol={crop.current_volume}
+                            availVol={crop.available_volume}
                         />
                     ))} 
                     
