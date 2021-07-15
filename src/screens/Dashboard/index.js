@@ -27,7 +27,7 @@ import MultiType from '../../components/Multi/Index';
 import DoughnutChart from '../../components/Do';
 
 
-const Dashboard = () => {
+const Dashboard = (props) => {
 
     const authCtx = useContext(AuthContext);
     const authToken = 'Token ' + authCtx.token;
@@ -187,7 +187,8 @@ const Dashboard = () => {
                         <Farmer 
                             imgUrl={farmer.avatar} 
                             name={farmer.name} 
-                            desc={farmer.bio} 
+                            username={farmer.username} 
+                            desc={farmer.bio}
                         />
                     ))} 
                     

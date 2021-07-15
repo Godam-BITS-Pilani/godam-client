@@ -4,6 +4,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import Layout from './components/Layout'
 import Login from './screens/Login'
 import Register from './screens/Register'
+import FarmerScreen from './screens/FarmerScreen'
 import Dashboard from './screens/Dashboard'
 import AuthContext from './store/auth'
 
@@ -26,6 +27,10 @@ function App() {
 
         <Route path="/register" exact>
         {isLoggedIn ?  <Dashboard /> : <Register /> }
+        </Route>
+
+        <Route path="/farmer/:farmerSlug" exact>
+        {isLoggedIn ?  <FarmerScreen /> : <Login /> }
         </Route>
 
         <Route path="*">
