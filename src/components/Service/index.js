@@ -14,7 +14,7 @@ const Service = (props) => {
             bg="gray.100" 
             p="20px"
             height="120px"
-            width="380px"
+            width="400px"
             mr="20px"
             mt="20px"
             alignItems="center"
