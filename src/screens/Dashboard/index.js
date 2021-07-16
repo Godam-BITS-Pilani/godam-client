@@ -158,7 +158,7 @@ const Dashboard = (props) => {
 
                     {warehouseInfo.services.map((service, id) => (
                         <Service 
-                            imgUrl={service.img} 
+                            imgUrl={service.icon} 
                             name={service.name} 
                             desc={service.description} 
                             crops={service.crops} 
@@ -201,15 +201,6 @@ const Dashboard = (props) => {
             <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">CROPS IN STORE</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
-                    {/*  
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    <Farmer imgUrl={psrth} name="Parth Sharma" />
-                    */}
-                    
                     {warehouseInfo.warehouse_stored_crops.map((crop, id) => (
                         <Crop 
                             imgUrl={crop.crop.avatar} 
