@@ -206,6 +206,7 @@ const Dashboard = (props) => {
                             imgUrl={crop.crop.avatar} 
                             name={crop.crop.name} 
                             desc={crop.crop.bio} 
+                            cs={crop.crop.cropping_season}
                             totalVol={crop.total_volume}
                             currentVol={crop.current_volume}
                             availVol={crop.available_volume}

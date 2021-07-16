@@ -20,7 +20,8 @@ import 'react-circular-progressbar/dist/styles.css';
 import AuthContext from '../../store/auth'
 import psrth from '../../resources/img/psrth.jpg'
 
-import Crop from '../../components/Crop'
+import Crop from '../../components/Crop/Crop.js'
+import Polar from '../../components/Polar'
 
 
 const FarmerScreen = (props) => {
@@ -67,8 +68,8 @@ const FarmerScreen = (props) => {
         {farmerInfo ?
         <>
 
-        {/* USER GREETING SECTION */}
-        <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
+            {/* USER GREETING SECTION */}
+            <Flex flexDirection="row" alignItems="center" mt="30px" mb="20px" justifyContent="flex-start">
                 <Image
                     src={farmerInfo.profile.avatar}
                     // src={psrth}
@@ -92,27 +93,29 @@ const FarmerScreen = (props) => {
 
                 </Flex>
             </Flex>
+
+            <Flex flexDirection="column" width="100%" justifyContent="center" mt="50px" mb="10px" alignItems="center" flexWrap="wrap">
+                <Flex width="300px"><Polar /></Flex>
+            </Flex>
         
-        {/* CROPS LIST SECTION */}
-        <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
+            {/* CROPS LIST SECTION */}
+            <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">CROPS IN STORE</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="flex-start" flexWrap="wrap">
                     {farmerInfo.crops.map((crop, id) => (
                         <Crop 
                             imgUrl={crop.crop.avatar} 
+                            cs={crop.crop.cropping_season}
                             name={crop.crop.name} 
                             desc={crop.crop.bio} 
-                            totalVol={crop.total_volume}
-                            currentVol={crop.current_volume}
-                            availVol={crop.available_volume}
                         />
-                    ))} 
-                    
+                    ))}
                 </Flex>
             </Flex>
+            
         
         
-        {JSON.stringify(farmerInfo)}
+        {/* {JSON.stringify(farmerInfo)} */}
         </> :
         <Flex direction="column" margin="auto" alignItems="center" justifyContent="center">
             <Spinner color="dark.primary" />
