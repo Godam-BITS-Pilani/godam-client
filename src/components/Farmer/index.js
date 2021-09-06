@@ -39,7 +39,7 @@ const Farmer = (props) => {
 
             <Flex flexDir="column">
                 <Text fontSize="24px" fontWeight="bold">{props.name}</Text>
-                <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</Text>
+                <Text fontSize="14px" fontWeight="medium">{props.desc}</Text>
             </Flex>
         </Flex>
     </Link></>

@@ -94,9 +94,9 @@ const FarmerScreen = (props) => {
                 </Flex>
             </Flex>
 
-            <Flex flexDirection="column" width="100%" justifyContent="center" mt="50px" mb="10px" alignItems="center" flexWrap="wrap">
+            {/* <Flex flexDirection="column" width="100%" justifyContent="center" mt="50px" mb="10px" alignItems="center" flexWrap="wrap">
                 <Flex width="300px"><Polar /></Flex>
-            </Flex>
+            </Flex> */}
         
             {/* CROPS LIST SECTION */}
             <Flex flexDirection="column" justifyContent="center" mt="50px" mb="10px" alignItems="flex-start" flexWrap="wrap">
@@ -108,6 +108,9 @@ const FarmerScreen = (props) => {
                             cs={crop.crop.cropping_season}
                             name={crop.crop.name} 
                             desc={crop.crop.bio} 
+                            totalVol={crop.crop.totalVol}
+                            availVol={crop.crop.availVol}
+                            currentVol={crop.crop.currentVol}
                         />
                     ))}
                 </Flex>

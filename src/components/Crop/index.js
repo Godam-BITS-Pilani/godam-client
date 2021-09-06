@@ -26,13 +26,13 @@ const Crop = (props) => {
                 src={props.imgUrl}
                 mr="20px"
                 borderRadius="10px"
-                width="40%"
+                width="30%"
             ></Image>
 
             <Flex flexDir="column">
                 <Text fontSize="24px" fontWeight="bold">{props.name}</Text>
                 {/* <Text fontSize="14px" fontWeight="medium">{props.desc}</Text> */}
-                <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard.</Text>
+                {/* <Text fontSize="14px" fontWeight="medium">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the standard.</Text> */}
                 <Text fontSize="18px" mt="5px" fontWeight="bold">Cropping Season: {props.cs}</Text>
                 
                 <Flex flexDir="row" mt="10px">

@@ -102,24 +102,26 @@ const Dashboard = (props) => {
             <Flex flexDirection="column" justifyContent="center" mt="30px" mb="10px" alignItems="flex-start" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">WAREHOUSE OVERVIEW</Text>
                 <Flex flexDirection="row" alignItems="center" mb="10px" justifyContent="space-between" flexWrap="wrap">
-                    <Flex 
-                        flexDir="column" 
-                        width="600px" 
-                        mr="30px" 
-                        mt="20px" 
-                        bg="gray.100" 
-                        p="20px" 
-                        height="300px"
-                        borderRadius="10px"
-                        alignItems="center"
-                        justifyContent="center"
-                    >
-                        <Box bg="green" height="80%" width="100%"></Box>
-                        <Flex flexDir="row" mt="20px" alignItems="center" justifyContent="space-between">
-                            <Text mr="30px" fontWeight="bold" fontSize="22px" width="55%">Godam Warehouse Punjab National Highway</Text>
-                            <Text width="45%">{warehouseInfo.address.formatted}</Text>
+                    <a href="https://maps.google.com/">
+                        <Flex 
+                            flexDir="column" 
+                            width="600px" 
+                            mr="30px" 
+                            mt="20px" 
+                            bg="gray.100" 
+                            p="20px" 
+                            height="300px"
+                            borderRadius="10px"
+                            alignItems="center"
+                            justifyContent="center"
+                        >
+                            <Image src="https://i.imgur.com/AnBX7Hp.png" width="100%" height="70%" objectFit="cover" />
+                            <Flex flexDir="row" mt="20px" alignItems="center" justifyContent="space-between">
+                                <Text mr="30px" fontWeight="bold" fontSize="22px" width="55%">Godam Warehouse Punjab National Highway</Text>
+                                <Text width="45%">{warehouseInfo.address.formatted}</Text>
+                            </Flex>
                         </Flex>
-                    </Flex>
+                    </a>
                     <Flex 
                         flexDir="column" 
                         width="300px" 
@@ -221,14 +223,14 @@ const Dashboard = (props) => {
 
 
             {/* REVENUE OVERVIEW SECTION */}
-            <Flex flexDirection="column" justifyContent="center" mt="70px" mb="-70px" alignItems="center" flexWrap="wrap">
+            {/* <Flex flexDirection="column" justifyContent="center" mt="70px" mb="-70px" alignItems="center" flexWrap="wrap">
                 <Text fontWeight="bold" ml="5px" mb="-5px"color="gray.600">REVENUE OVERVIEW</Text>
             </Flex>
             <Flex width="100%" alignItems="center" justifyContent="center">
                 <Flex height="600px" width="800px" alignItems="center" justifyContent="center">
                     <MultiType />
                 </Flex>
-            </Flex>
+            </Flex> */}
            
     
 
