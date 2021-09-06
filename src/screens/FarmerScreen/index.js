@@ -55,6 +55,7 @@ const FarmerScreen = (props) => {
             ).then(res => {
                 if(res.data){
                     setFarmerInfo(res.data);
+                    console.log(res.data)
                 } else {
                     alert("ERROR RETRIEVING CONTENT.");
                 }
@@ -108,9 +109,7 @@ const FarmerScreen = (props) => {
                             cs={crop.crop.cropping_season}
                             name={crop.crop.name} 
                             desc={crop.crop.bio} 
-                            totalVol={crop.crop.totalVol}
-                            availVol={crop.crop.availVol}
-                            currentVol={crop.crop.currentVol}
+                            currentVol={crop.currentVol}
                         />
                     ))}
                 </Flex>

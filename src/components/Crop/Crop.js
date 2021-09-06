@@ -17,8 +17,8 @@ const Crop = (props) => {
             p="20px"
             mr="20px"
             mt="20px"
-            alignItems="center"
-            justifyContent="center"
+            alignItems="flex-start"
+            justifyContent="flex-start"
             borderRadius="10px"
         >
             <Image
@@ -33,25 +33,11 @@ const Crop = (props) => {
                 <Text fontSize="24px" fontWeight="bold">{props.name}</Text>
                 <Text fontSize="18px" mt="5px" fontWeight="bold">Cropping Season: {props.cs}</Text>
 
-
-
-
-                <Flex flexDir="row" mt="10px">
-                <Flex flexDir="column" alignItems="center" mr="20px">
-                    <Text fontSize="12px" fontWeight="medium">TOTAL VOLUME</Text>
-                    <Text fontSize="24px" fontWeight="bold">{props.totalVol} kgs</Text>
-                </Flex>
-                <Flex flexDir="column" alignItems="center" mr="20px">
-                    <Text fontSize="12px" fontWeight="medium">AVAILABLE VOLUME</Text>
-                    <Text fontSize="24px" fontWeight="bold">{props.availVol} kgs</Text>
-                </Flex>
-                <Flex flexDir="column" alignItems="center">
+                <Flex flexDir="column" alignItems="flex-start">
                     <Text fontSize="12px" fontWeight="medium">CURRENT VOLUME</Text>
                     <Text fontSize="24px" fontWeight="bold">{props.currentVol} kgs</Text>
                 </Flex>
             </Flex>
-            </Flex>
-
             
         </Flex>
     )
